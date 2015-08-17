@@ -3,6 +3,14 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+body{
+	margin:0;
+	color:white;
+}
+footer{
+	height:34px;
+	clear:both;
+}
 .peter-river{background-color:#3498db}
 .color-0 { background-color: #3499DB }	/* Main Primary color */
 .color-1 { background-color: #85C4ED }
@@ -10,7 +18,38 @@
 .color-3 { background-color: #0F85D1 }
 .color-4 { background-color: #0665A2 }
 .wet-asphalt{background-color:#34495e}
+@media (orientation:portrait){
+		section{width:100%;}
+		section > div:first-of-type{height:110px}
+		div > div{height:110px}
+	} 
+@media (orientation:landscape){
+		section{width:50%;}
+		section:first-of-type{float:left;}
+		section:last-of-type{float:right;}
+		section > div:first-of-type{height:144px}
+		div > div{width:50%;height:199px;}
+		div > div:first-of-type{float:left;}
+		div > div:last-of-type{float:right;}
+	} 
+
 </style>
+
 </head>
 <body>
+	<section>
+		<div class="time color-0">FOO</div>
+		<div>
+			<div class=”news color-1” >FOO</div>
+			<div class=”tasks color-2” >FOO</div>
+		</div>
+	</section>
+	<section>
+		<div class="weather color-3">FOO</div>
+		<div>
+			<div class="travel color-1">FOO</div>
+			<div class="stock color-4">FOO</div>
+		</div>
+	</section>
+	<footer class="wet-asphalt">FOOTER</footer>
 </body>
