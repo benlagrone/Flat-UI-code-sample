@@ -26,6 +26,33 @@ footer{
 		section{width:100%;}
 		section > div:first-of-type{height:110px}
 		div > div{height:110px}
+		.scroll{overflow-x:scroll;}
+		/* TIME */ 
+		.time h1{
+				margin:5% 3%;
+				padding:0;
+				float:left;
+				}
+		.time span:first-of-type{display:block;}
+		/* NEWS & TASKS */
+		.news ul, .tasks ul{display:inline-block;width:1500px;}
+		.tasks ul li, .news ul li{float:left;width:226px;margin:0 35px 0 0;}
+		.tasks ul li p, .news ul li p{margin:5px;}
+		.tasks ul li h4, .news ul li h4{margin:2px;}
+		/* WEATHER */
+		.weather > ul > li{display:inline;float:left;}
+		.weather > ul > li:first-child > ul > li:first-child{width:21%;float:left;text-align:right;margin-left:15%;}
+		.weather > ul > li:first-child > ul > li:last-child{width:60%;float:right;text-align:center;}
+		.weather h2{font-size:.8REM}
+		
+		.travel > *	{float: left;margin:5% 0 0 5%;}
+		.stock > ul > li {
+    		float: left;
+    		width: 33%;
+    		margin: 0;
+    		padding: 0;
+    		display: inline;
+			}
 	} 
 @media (orientation:landscape){
 		section{width:50%;}
@@ -35,6 +62,34 @@ footer{
 		div > div{width:50%;height:199px;}
 		div > div:first-of-type{float:left;}
 		div > div:last-of-type{float:right;}
+		.scroll{overflow-y:scroll;}
+		
+		.dark{color:#34495e;}
+		.left{float:left;clear:left;}
+		.right{float:right;clear:right}
+		
+		/* TIME */
+		.time{text-align:center}
+		/* NEWS & TASKS */
+		.news ul, .tasks ul{
+			padding:5%;
+			margin:0;
+		}
+		.news, .tasks{font-size:0.7REM;}
+		/* WEATHER */
+		.weather > ul > li {float:left;margin:0}
+		.weather > ul > li:first-child > ul > li:first-child{width:100%;}
+		.weather > ul > li:first-child > ul > li:last-child{width:100%;text-align:center;}
+		.weather > ul > li:first-child > ul > li:last-child ul{width:100%;padding:0;}
+		.weather h2{font-size:1.5REM}
+		
+	.dark{color:#34495e;}
+	.left{float:left;clear:left;}
+	.right{float:right;clear:right}
+	.center{text-align:center;}
+	
+	.stock ul{padding:5%;margin:0;}
+	.travel > *{margin-bottom:-10%;}
 	} 
 button{
 	padding: 13px 21px;
@@ -48,7 +103,35 @@ button{
     cursor: pointer;
    	font-size:1.1REM;
 }
+p {
+	width:94%;
+    overflow:hidden;
+}
+.ellipsis{
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	overflow:hidden;
+}
+.ellipsis::after{
+	content:"...";
+    float: right;
+    position: relative;
+    bottom: 24px;
+}
+.large{font-size:2.1REM}
+ul{list-style-type:none;}
+
+.weather > ul{margin:0;padding:5% 0;}
+.weather > ul > li:first-child{width:34%;margin:0 5% 0 0;}
+.weather > ul > li:last-child{width:60%}
+.weather > ul > li > ul {padding:0;margin:0 0 0 5%}
+
+.weather > ul > li:last-child > ul > li:first-child{width:60%;float:left;}
+.weather > ul > li:last-child > ul > li:last-child{width:40%;float:left;}
+.weather > ul > li:last-child > ul > li > ul {margin:0;padding:0;}
+.weather h2{padding:10% 0 0 0;margin:0 auto;text-align:center}
 </style>
+
 <script>
 
 	var dayArray = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
@@ -79,42 +162,46 @@ function correctDigit(i) {
 	<section>
 		<div class="time color-0" id="time">FOO</div>
 		<div>
-			<div class=”news color-1”>
+			<div class="news color-1 scroll">
 				<ul>
-					<li>
-						<h3><i class="fa fa-newspaper-o"></i>&nbsp;Title 1</h3>
+					<li class="ellipsis">
+						<h4 class="dark"><i class="fa fa-newspaper-o"></i>&nbsp;Title 1</h4>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, </p>
 					</li>
-					<li>
-						<h3><i class="fa fa-newspaper-o"></i>&nbsp;Title 2</h3>
+					<li class="ellipsis">
+						<h4 class="dark"><i class="fa fa-newspaper-o"></i>&nbsp;Title 2</h4>
 						<p>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 					</li>
-					<li>
-						<h3><i class="fa fa-newspaper-o"></i>&nbsp;Title 3</h3>
+					<li class="ellipsis">
+						<h4 class="dark"><i class="fa fa-newspaper-o"></i>&nbsp;Title 3</h4>
 						<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
 					</li>
-				<ul>
+					<li class="ellipsis">
+						<h4 class="dark"><i class="fa fa-newspaper-o"></i>&nbsp;Title 4</h4>
+						<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+					</li>
+				</ul>
 			</div>
-			<div class="tasks color-2">
+			<div class="tasks color-2 scroll">
 				<ul>
-					<li>
-						<h4><i class="fa fa-calendar-check-o"></i>&nbsp;8:00am</h4>
+					<li class="ellipsis">
+						<h4 class="dark"><i class="fa fa-calendar-check-o"></i>&nbsp;8:00am</h4>
 						<p>Wake up, fall out of bed</p>
 					</li>
-					<li>
-						<h4><i class="fa fa-calendar-check-o"></i>&nbsp;9:00am</h4>
+					<li class="ellipsis">
+						<h4 class="dark"><i class="fa fa-calendar-check-o"></i>&nbsp;9:00am</h4>
 						<p>Run the comb across your head</p>
 					</li>
-					<li>
-						<h4><i class="fa fa-calendar-check-o"></i>&nbsp;10:00am</h4>
+					<li class="ellipsis">
+						<h4 class="dark"><i class="fa fa-calendar-check-o"></i>&nbsp;10:00am</h4>
 						<p>Find your way downstairs and Drink a cup</p>
 					</li>
-					<li>
+					<li class="ellipsis">
 						<h4><i class="fa fa-calendar-check-o"></i>&nbsp;11:00am</h4>
 						<p>Looking up, notice you are late</p>
 					</li>
-					<li>
-						<h4><i class="fa fa-calendar-check-o"></i>&nbsp;12:00am</h4>
+					<li class="ellipsis">
+						<h4 class="dark"><i class="fa fa-calendar-check-o"></i>&nbsp;12:00am</h4>
 						<p>Find your coat and grab your hat</p>
 					</li>
 				</ul>
@@ -129,8 +216,8 @@ function correctDigit(i) {
 						<li><h2><i class="fa fa-cloud fa-3x"></i></h2></li>
 						<li>
 							<ul>
-								<li><span>104</span><br><span>High</span></li>
-								<li><span>94</span><br><span>Low</span></li>
+								<li class="left"><span>104</span><br><span class="dark">High</span></li>
+								<li class="right"><span>94</span><br><span class="dark">Low</span></li>
 							</ul>
 						</li>
 					</ul>
@@ -139,10 +226,10 @@ function correctDigit(i) {
 					<ul>
 						<li>
 							<ul>
-								<li><span>Pollen</span><span>3.5</span></li>
-								<li><span>Humidity</span><span>90%</span></li>
-								<li><span>Precipitation</span><span>90%</span></li>
-								<li><span>Wind</span><span>0</span></li>
+								<li><span class="dark">Pollen</span><span>3.5</span></li>
+								<li><span class="dark">Humidity</span><span>90%</span></li>
+								<li><span class="dark">Precip</span><span>90%</span></li>
+								<li><span class="dark">Wind</span><span>0</span></li>
 							</ul>
 						</li>
 						<li>
@@ -158,18 +245,18 @@ function correctDigit(i) {
 			</ul>
 		</div>
 		<div>
-			<div class="travel color-1">
+			<div class="travel color-1 center">
 				<h2><i class="fa fa-bicycle fa-4x"></i></h2>
 				<h3>45</h3>
-				<h4>Minutes to work</h4>
+				<h4 class="dark">Minutes to work</h4>
 			</div>
-			<div class="stock color-4">
+			<div class="stock color-4 center">
 				<ul>
-					<li><h2><i class="fa fa-line-chart"></i>FOO</h2></li>
+					<li><h2 class=""><i class="fa fa-line-chart"></i>FOO</h2></li>
 					<li>
 						<ul>
-							<li><span>104</span></li>
-							<li><span>+5.5</span></li>
+							<li class="left"><span>104</span></li>
+							<li class="right"><span>+5.5</span></li>
 						</ul>
 					</li>
 					<li><button onclick="doSomething()" class="wet-asphalt">more</button></li>
